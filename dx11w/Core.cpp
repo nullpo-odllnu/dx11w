@@ -31,6 +31,7 @@ namespace dx
 			bool init()
 			{
 				printd(_T("[core::init sequence]\n"));
+				
 				printd(_T("createDeviceAndSwapchain\n"));
 				if (createDeviceAndSwapchain() == false)
 				{
@@ -41,7 +42,15 @@ namespace dx
 				{
 					return false;
 				}
-				printd(_T("---core::init finished\n"));
+				printd(_T("window / fullscreen switch\n"));
+				auto result = CreateDXGIFactory(__uuidof(IDXGIFactory), reinterpret_cast<void**>(m_factory.pointer()));
+				if (FAILED(result))
+				{
+					DXTRACE_ERR_MSGBOX(_T("createdxgifactory"), result);
+					return false;
+				}
+
+				printd(_T("[core::init finished]\n"));
 
 				return true;
 			}

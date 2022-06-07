@@ -10,6 +10,7 @@
 #pragma comment(lib, "d3d11")
 #pragma comment(lib, "d3dx11" DX11W_LIB_PREFIX)
 #pragma comment(lib, "dxerr")
+#pragma comment(lib, "dxgi")
 // DXTRACE_ERR_MSGBOX‚ðŽg‚¤‚½‚ß‚É’Ç‰Á
 #pragma comment(lib, "legacy_stdio_definitions")
 
