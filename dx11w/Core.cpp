@@ -23,9 +23,6 @@ namespace dx
 			CoreImpl()
 			{
 			}
-			~CoreImpl()
-			{
-			}
 			
 			// 初期化シーケンス
 			bool init()
@@ -195,7 +192,6 @@ namespace dx
 	{
 		m_impl = std::make_unique<CoreImpl>();
 	}
-
 	Core::~Core()
 	{
 	}
@@ -209,13 +205,9 @@ namespace dx
 
 		return coreInstance;
 	}
-
 	void Core::deleteInstance()
 	{
-		if (coreInstance != nullptr)
-		{
-			delete coreInstance;
-		}
+		SAFE_DELETE(coreInstance);
 	}
 
 	bool Core::init(const CoreParam& coreParam)

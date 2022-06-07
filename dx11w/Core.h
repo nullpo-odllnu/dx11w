@@ -79,8 +79,8 @@ namespace dx
 
 		private:
 			Core();
-			Core(const Core&) = delete;
-			Core& operator=(const Core&) = delete;
+			Core(const Core&);
+			Core& operator=(const Core&);
 
 			class CoreImpl;
 			std::unique_ptr<CoreImpl> m_impl;
