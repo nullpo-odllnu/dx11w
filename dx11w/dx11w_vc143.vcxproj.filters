@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="precompile.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="float4.h" />
+    <ClInclude Include="float2.h" />
+    <ClInclude Include="float3.h" />
+    <ClInclude Include="float4x4.h" />
+    <ClInclude Include="DXMath.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="precompile.cpp" />
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="float4.cpp" />
+    <ClCompile Include="float2.cpp" />
+    <ClCompile Include="float3.cpp" />
+    <ClCompile Include="float4x4.cpp" />
+  </ItemGroup>
+</Project>
