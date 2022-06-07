@@ -30,3 +30,22 @@
 *.exe
 *.out
 *.app
+
+# custom
+*.user
+*.vsidx
+*.lock
+*.db
+*.db-shm
+*.db-wal
+*.idb
+*.ilk
+*.lastbuildstate
+*.log
+*.opendb
+*.pdb
+*.recipe
+*.sln
+*.suo
+*.tlog
+*.txt
