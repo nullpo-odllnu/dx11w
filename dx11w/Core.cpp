@@ -247,4 +247,9 @@ namespace dx
 			DXTRACE_ERR_MSGBOX(_T("swapchain::present"), result);
 		}
 	}
+
+	HWND Core::getWindowHandle() const
+	{
+		return m_impl->m_param.windowHandle;
+	}
 }

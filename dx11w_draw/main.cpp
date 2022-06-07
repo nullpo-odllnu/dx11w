@@ -1,4 +1,5 @@
 #include <Core.h>
+#include <Input.h>
 #include <float4.h>
 
 // コールバック関数
@@ -7,12 +8,19 @@ LRESULT CALLBACK windowProcess(HWND windowHandle, UINT message, WPARAM wParam, L
 	switch (message)
 	{
 		case WM_PAINT:
-		{
-			PAINTSTRUCT paintStruct;
-			auto paint = BeginPaint(windowHandle, &paintStruct);
-			EndPaint(windowHandle, &paintStruct);
-		}
-		break;
+			{
+				PAINTSTRUCT paintStruct;
+				auto paint = BeginPaint(windowHandle, &paintStruct);
+				EndPaint(windowHandle, &paintStruct);
+			}
+			break;
+		case WM_MOUSEWHEEL:
+			{
+				int wheelDelta = GET_WHEEL_DELTA_WPARAM(wParam);
+				auto input = dx::Input::getInstance();
+				input->setMouseWheelMove(wheelDelta);
+			}
+			break;
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			break;
@@ -24,10 +32,8 @@ LRESULT CALLBACK windowProcess(HWND windowHandle, UINT message, WPARAM wParam, L
 }
 
 HWND createWindow(HINSTANCE instance, int commandShow,
-	const tstring &title, unsigned int width, unsigned int height)
+	LPCTSTR title, unsigned int width, unsigned int height)
 {
-	auto titleString = reinterpret_cast<LPCTSTR>(title.c_str());
-
 	// ウィンドウ作成
 	// https://msdn.microsoft.com/ja-jp/windows/desktop/ms633577?f=255&MSPPError=-2147217396
 	// http://www-higashi.ist.osaka-u.ac.jp/~k-maeda/vcpp/sec1-3wnddetail.html
@@ -43,7 +49,7 @@ HWND createWindow(HINSTANCE instance, int commandShow,
 	// + 1するのはWNDCLASSEXの仕様
 	window.hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1);
 	window.lpszMenuName = nullptr;
-	window.lpszClassName = titleString;
+	window.lpszClassName = title;
 	window.hIconSm = nullptr;
 	if (RegisterClassEx(&window) == 0)
 	{
@@ -59,7 +65,7 @@ HWND createWindow(HINSTANCE instance, int commandShow,
 
 	// http://wisdom.sakura.ne.jp/system/winapi/win32/win7.html
 	auto windowHandle = CreateWindow(
-		titleString, titleString,
+		title, title,
 		WS_OVERLAPPEDWINDOW ^ (WS_THICKFRAME | WS_MAXIMIZEBOX),
 		CW_USEDEFAULT, CW_USEDEFAULT, rect.right, rect.bottom,
 		nullptr, nullptr, instance, nullptr);
@@ -75,7 +81,6 @@ HWND createWindow(HINSTANCE instance, int commandShow,
 
 const unsigned int width = 900;
 const unsigned int height = 540;
-const tstring title = _T("dx11w_draw");
 HWND window = nullptr;
 
 void begin()
@@ -95,14 +100,24 @@ void begin()
 void update()
 {
 	auto core = dx::Core::getInstance();
+	auto input = dx::Input::getInstance();
+
+	input->update(core->getWindowHandle());
 
 	core->cleaBackbuffer(dx::float4(0.0f, 0.0f, 1.0f));
 	core->present();
+
+	// 終了処理
+	if (input->getKeyboardRelease(VK_ESCAPE))
+	{
+		core->quit();
+	}
 }
 
 void end()
 {
 	dx::Core::deleteInstance();
+	dx::Input::deleteInstance();
 }
 
 int WINAPI _tWinMain(HINSTANCE instance, HINSTANCE prevInstance, LPTSTR commandline, int commandShow)
@@ -113,6 +128,7 @@ int WINAPI _tWinMain(HINSTANCE instance, HINSTANCE prevInstance, LPTSTR commandl
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
 
+	auto title = _T("dx11w_draw");
 	window = createWindow(instance, commandShow, title, width, height);
 
 	begin();

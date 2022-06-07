@@ -10,6 +10,7 @@
     <ClInclude Include="float3.h" />
     <ClInclude Include="float4x4.h" />
     <ClInclude Include="DXMath.h" />
+    <ClInclude Include="Input.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="precompile.cpp" />
@@ -19,5 +20,6 @@
     <ClCompile Include="float2.cpp" />
     <ClCompile Include="float3.cpp" />
     <ClCompile Include="float4x4.cpp" />
+    <ClCompile Include="Input.cpp" />
   </ItemGroup>
 </Project>

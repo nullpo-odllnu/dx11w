@@ -60,6 +60,7 @@ namespace dx
 			Object<ID3D11RenderTargetView> getBackbufferRenderTargetView() const;
 			Object<ID3D11DepthStencilView> getBackbufferDepthStencilView() const;
 			float2 getWindosSize() const;
+			HWND getWindowHandle() const;
 
 			// ------ •`‰æƒRƒ}ƒ“ƒh
 			void clearRenderTargetView(Object<ID3D11RenderTargetView> &renderTargetView, float4& clearColor) const;
