@@ -16,4 +16,6 @@ typedef std::basic_string<TCHAR, std::char_traits<TCHAR>, std::allocator<TCHAR>>
 namespace dx
 {
 	void printd(const tstring& string);
+
+	tstring format(const TCHAR* format, ...);
 }
