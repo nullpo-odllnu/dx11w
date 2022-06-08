@@ -220,6 +220,10 @@ namespace dx
 	{
 		PostQuitMessage(0);
 	}
+	void Core::setWindowTitle(const tstring& title)
+	{
+		SetWindowText(m_impl->m_param.windowHandle, title.c_str());
+	}
 
 	void Core::clearRenderTargetView(Object<ID3D11RenderTargetView> &renderTargetView, float4 &clearColor) const
 	{

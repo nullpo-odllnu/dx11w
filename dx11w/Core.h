@@ -75,6 +75,7 @@ namespace dx
 
 			// ------ ウィンドウ処理
 			void quit();
+			void setWindowTitle(const tstring& title);
 			void resize(unsigned int resizeWidth, unsigned int resizeHeight);
 			void switchWindow();
 
