@@ -13,6 +13,7 @@
 #pragma comment(lib, "dxgi")
 // DXTRACE_ERR_MSGBOXを使うために追加
 #pragma comment(lib, "legacy_stdio_definitions")
+#pragma comment(lib, "winmm")
 
 // マクロ再定義の警告を無視
 #pragma warning(disable : 4005)
@@ -27,6 +28,7 @@
 #include <tchar.h>
 #include <string>
 #include <locale>
+#include <mmsystem.h>
 
 #include "Object.h"
 #include "Common.h"

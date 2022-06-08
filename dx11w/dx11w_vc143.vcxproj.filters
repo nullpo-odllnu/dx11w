@@ -11,6 +11,7 @@
     <ClInclude Include="float4x4.h" />
     <ClInclude Include="DXMath.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Framerate.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="precompile.cpp" />
@@ -21,5 +22,6 @@
     <ClCompile Include="float3.cpp" />
     <ClCompile Include="float4x4.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Framerate.cpp" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 #include <Core.h>
 #include <Input.h>
+#include <Framerate.h>
+
 #include <float4.h>
 
 // コールバック関数
@@ -81,6 +83,7 @@ HWND createWindow(HINSTANCE instance, int commandShow,
 
 const unsigned int width = 900;
 const unsigned int height = 540;
+const unsigned int fps = 60;
 HWND window = nullptr;
 
 void begin()
@@ -95,6 +98,9 @@ void begin()
 	{
 		core->quit();
 	}
+
+	auto framerate = dx::Framerate::getInstance();
+	framerate->set(fps);
 }
 
 void update()
@@ -112,12 +118,19 @@ void update()
 	{
 		core->quit();
 	}
+
+	auto framerate = dx::Framerate::getInstance();
+	framerate->update();
+	framerate->offset();
+
+	core->setWindowTitle(dx::format(_T("dx11w_draw %.3f"), framerate->getPresentFramerate()));
 }
 
 void end()
 {
 	dx::Core::deleteInstance();
 	dx::Input::deleteInstance();
+	dx::Framerate::deleteInstance();
 }
 
 int WINAPI _tWinMain(HINSTANCE instance, HINSTANCE prevInstance, LPTSTR commandline, int commandShow)
