@@ -70,7 +70,7 @@ namespace dx
 				return true;
 			}
 
-			Object<ID3D10Blob>& getShaderBlob() const
+			Object<ID3DBlob>& getShaderBlob()
 			{
 				return m_shaderBlob;
 			}

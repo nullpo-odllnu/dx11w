@@ -29,6 +29,7 @@
 #include <string>
 #include <locale>
 #include <mmsystem.h>
+#include <vector>
 
 #include "Object.h"
 #include "Common.h"
