@@ -16,6 +16,7 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="InputAssembler.h" />
     <ClInclude Include="OutputManager.h" />
+    <ClInclude Include="RasterizerState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="precompile.cpp" />
@@ -31,5 +32,6 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="InputAssembler.cpp" />
     <ClCompile Include="OutputManager.cpp" />
+    <ClCompile Include="RasterizerState.cpp" />
   </ItemGroup>
 </Project>
