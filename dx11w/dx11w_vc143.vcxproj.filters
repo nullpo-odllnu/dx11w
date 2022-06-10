@@ -12,6 +12,8 @@
     <ClInclude Include="DXMath.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Framerate.h" />
+    <ClInclude Include="Buffer.h" />
+    <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="precompile.cpp" />
@@ -23,5 +25,7 @@
     <ClCompile Include="float4x4.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Framerate.cpp" />
+    <ClCompile Include="Buffer.cpp" />
+    <ClCompile Include="Shader.cpp" />
   </ItemGroup>
 </Project>
