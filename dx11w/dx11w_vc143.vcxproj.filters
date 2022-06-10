@@ -15,6 +15,7 @@
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="InputAssembler.h" />
+    <ClInclude Include="OutputManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="precompile.cpp" />
@@ -29,5 +30,6 @@
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="InputAssembler.cpp" />
+    <ClCompile Include="OutputManager.cpp" />
   </ItemGroup>
 </Project>
