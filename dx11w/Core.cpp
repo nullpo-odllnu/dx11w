@@ -227,18 +227,18 @@ namespace dx
 		SetWindowText(m_impl->m_param.windowHandle, title.c_str());
 	}
 
-	void Core::clearRenderTargetView(Object<ID3D11RenderTargetView> &renderTargetView, float4 &clearColor) const
+	void Core::clearRenderTargetView(Object<ID3D11RenderTargetView> *renderTargetView, float4 &clearColor) const
 	{
-		m_impl->m_immediateContext.handle()->ClearRenderTargetView(renderTargetView.handle(), clearColor);
+		m_impl->m_immediateContext.handle()->ClearRenderTargetView(renderTargetView->handle(), clearColor);
 	}
-	void Core::clearDepthStencilView(Object<ID3D11DepthStencilView>& depthStencilView, D3D11_CLEAR_FLAG clearFlag, float clearDepthValue) const
+	void Core::clearDepthStencilView(Object<ID3D11DepthStencilView> *depthStencilView, D3D11_CLEAR_FLAG clearFlag, float clearDepthValue) const
 	{
-		m_impl->m_immediateContext.handle()->ClearDepthStencilView(depthStencilView.handle(), clearFlag, clearDepthValue, 0);
+		m_impl->m_immediateContext.handle()->ClearDepthStencilView(depthStencilView->handle(), clearFlag, clearDepthValue, 0);
 	}
 	void Core::cleaBackbuffer(const float4& clearColor, float clearDepth) const
 	{
-		clearRenderTargetView(m_impl->m_backbufferRenderTargetView, const_cast<float4&>(clearColor));
-		clearDepthStencilView(m_impl->m_backbufferDepthStencilView, D3D11_CLEAR_DEPTH, clearDepth);
+		clearRenderTargetView(&m_impl->m_backbufferRenderTargetView, const_cast<float4&>(clearColor));
+		clearDepthStencilView(&m_impl->m_backbufferDepthStencilView, D3D11_CLEAR_DEPTH, clearDepth);
 	}
 	void Core::present() const
 	{

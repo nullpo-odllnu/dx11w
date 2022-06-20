@@ -4,16 +4,16 @@
 
 namespace dx
 {
-	void setIndexBuffer(Object<ID3D11DeviceContext> &deviceContext, IndexBuffer &indexBuffer, DXGI_FORMAT indexFormat)
+	void setIndexBuffer(Object<ID3D11DeviceContext> *deviceContext, IndexBuffer *indexBuffer, DXGI_FORMAT indexFormat)
 	{
-		deviceContext.handle()->IASetIndexBuffer(indexBuffer.handle(), indexFormat, 0);
+		deviceContext->handle()->IASetIndexBuffer(indexBuffer->handle(), indexFormat, 0);
 	}
 
 	InputLayout::InputLayout() : Object<ID3D11InputLayout>()
 	{
 	}
 
-	bool InputLayout::create(Object<ID3D11Device> &device, std::vector<D3D11_INPUT_ELEMENT_DESC> &inputElementDescriptionList, VertexShader &vertexShader)
+	bool InputLayout::create(Object<ID3D11Device> *device, std::vector<D3D11_INPUT_ELEMENT_DESC> &inputElementDescriptionList, VertexShader &vertexShader)
 	{
 		if (m_object != nullptr)
 		{
@@ -22,7 +22,7 @@ namespace dx
 		}
 
 		auto shaderBlob = vertexShader.getShaderBlob();
-		auto result = device.handle()->CreateInputLayout(inputElementDescriptionList.data(),
+		auto result = device->handle()->CreateInputLayout(inputElementDescriptionList.data(),
 			static_cast<unsigned int>(inputElementDescriptionList.size()),
 			shaderBlob->handle()->GetBufferPointer(),
 			shaderBlob->handle()->GetBufferSize(),
@@ -35,13 +35,13 @@ namespace dx
 		return true;
 	}
 
-	void InputLayout::set(Object<ID3D11DeviceContext> &deviceContext)
+	void InputLayout::set(Object<ID3D11DeviceContext> *deviceContext)
 	{
-		deviceContext.handle()->IASetInputLayout(handle());
+		deviceContext->handle()->IASetInputLayout(handle());
 	}
 
-	void setPrimitiveTopology(Object<ID3D11DeviceContext> &deviceContext, D3D_PRIMITIVE_TOPOLOGY primitiveTopology)
+	void setPrimitiveTopology(Object<ID3D11DeviceContext> *deviceContext, D3D_PRIMITIVE_TOPOLOGY primitiveTopology)
 	{
-		deviceContext.handle()->IASetPrimitiveTopology(primitiveTopology);
+		deviceContext->handle()->IASetPrimitiveTopology(primitiveTopology);
 	}
 }

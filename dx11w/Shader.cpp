@@ -2,7 +2,7 @@
 
 namespace dx
 {
-	bool VertexShader::create(Object<ID3D11Device>& device)
+	bool VertexShader::create(Object<ID3D11Device> *device)
 	{
 		if (m_object != nullptr)
 		{
@@ -10,7 +10,7 @@ namespace dx
 			return false;
 		}
 
-		auto result = device.handle()->CreateVertexShader(
+		auto result = device->handle()->CreateVertexShader(
 			m_shaderBlob.handle()->GetBufferPointer(), m_shaderBlob.handle()->GetBufferSize(),
 			nullptr, pointer());
 		if (FAILED(result))
@@ -21,12 +21,12 @@ namespace dx
 
 		return true;
 	}
-	void VertexShader::set(Object<ID3D11DeviceContext>& deviceContext)
+	void VertexShader::set(Object<ID3D11DeviceContext> *deviceContext)
 	{
-		deviceContext.handle()->VSSetShader(handle(), nullptr, 0);
+		deviceContext->handle()->VSSetShader(handle(), nullptr, 0);
 	}
 
-	bool PixelShader::create(Object<ID3D11Device>& device)
+	bool PixelShader::create(Object<ID3D11Device> *device)
 	{
 		if (m_object != nullptr)
 		{
@@ -34,7 +34,7 @@ namespace dx
 			return false;
 		}
 
-		auto result = device.handle()->CreatePixelShader(
+		auto result = device->handle()->CreatePixelShader(
 			m_shaderBlob.handle()->GetBufferPointer(), m_shaderBlob.handle()->GetBufferSize(),
 			nullptr, pointer());
 		if (FAILED(result))
@@ -45,8 +45,8 @@ namespace dx
 
 		return true;
 	}
-	void PixelShader::set(Object<ID3D11DeviceContext>& deviceContext)
+	void PixelShader::set(Object<ID3D11DeviceContext> *deviceContext)
 	{
-		deviceContext.handle()->PSSetShader(handle(), nullptr, 0);
+		deviceContext->handle()->PSSetShader(handle(), nullptr, 0);
 	}
 }

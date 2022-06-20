@@ -63,8 +63,8 @@ namespace dx
 			HWND getWindowHandle() const;
 
 			// ------ 描画コマンド
-			void clearRenderTargetView(Object<ID3D11RenderTargetView> &renderTargetView, float4& clearColor) const;
-			void clearDepthStencilView(Object<ID3D11DepthStencilView>& depthStencilView,
+			void clearRenderTargetView(Object<ID3D11RenderTargetView> *renderTargetView, float4 &clearColor) const;
+			void clearDepthStencilView(Object<ID3D11DepthStencilView> *depthStencilView,
 				D3D11_CLEAR_FLAG clearFlag = D3D11_CLEAR_DEPTH,
 				float clearDepthValue = 1.0f) const;
 			// 描画先(レンダーターゲット / 深度)をバックバッファに戻す

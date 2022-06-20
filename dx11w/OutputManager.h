@@ -29,8 +29,8 @@ namespace dx
 		public:
 			BlendState();
 
-			bool create(Object<ID3D11Device> &device, std::vector<BlendParam> &blendParamList, bool alphaToCoverage = false);
-			void set(Object<ID3D11DeviceContext> &deviceContext);
+			bool create(Object<ID3D11Device> *device, std::vector<BlendParam> &blendParamList, bool alphaToCoverage = false);
+			void set(Object<ID3D11DeviceContext> *deviceContext);
 	};
 
 	class DepthState : public Object<ID3D11DepthStencilState>
@@ -38,10 +38,10 @@ namespace dx
 		public:
 			DepthState();
 
-			bool create(Object<ID3D11Device> &device, 
+			bool create(Object<ID3D11Device> *device, 
 				bool enable = true, 
 				D3D11_DEPTH_WRITE_MASK depthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL,
 				D3D11_COMPARISON_FUNC comparisonFunction = D3D11_COMPARISON_LESS);
-			void set(Object<ID3D11DeviceContext> &deviceContext);
+			void set(Object<ID3D11DeviceContext> *deviceContext);
 	};
 }

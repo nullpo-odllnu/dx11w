@@ -8,7 +8,7 @@ namespace dx
 	{
 	}
 
-	bool RasterizerState::create(Object<ID3D11Device> &device, 
+	bool RasterizerState::create(Object<ID3D11Device> *device, 
 		D3D11_FILL_MODE fillMode,
 		D3D11_CULL_MODE cullMode,
 		bool frontCounterClockwise,
@@ -33,7 +33,7 @@ namespace dx
 		rasterizerDescription.MultisampleEnable = multisample;
 		rasterizerDescription.AntialiasedLineEnable = antiAliasedLine;
 
-		auto result = device.handle()->CreateRasterizerState(&rasterizerDescription, pointer());
+		auto result = device->handle()->CreateRasterizerState(&rasterizerDescription, pointer());
 		if (FAILED(result))
 		{
 			DXTRACE_ERR_MSGBOX(_T("device::createrasterizerstate"), result);
@@ -42,9 +42,9 @@ namespace dx
 		return true;
 	}
 	
-	void RasterizerState::set(Object<ID3D11DeviceContext> &deviceContext)
+	void RasterizerState::set(Object<ID3D11DeviceContext> *deviceContext)
 	{
-		deviceContext.handle()->RSSetState(handle());
+		deviceContext->handle()->RSSetState(handle());
 	}
 
 	Viewport::Viewport() : 

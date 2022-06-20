@@ -75,11 +75,11 @@ namespace dx
 				return &m_shaderBlob;
 			}
 
-			virtual bool create(Object<ID3D11Device>& device)
+			virtual bool create(Object<ID3D11Device> *device)
 			{
 				return true;
 			}
-			virtual void set(Object<ID3D11DeviceContext> &deviceContext)
+			virtual void set(Object<ID3D11DeviceContext> *deviceContext)
 			{
 			}
 	};
@@ -87,14 +87,14 @@ namespace dx
 	class VertexShader : public Shader<ID3D11VertexShader>
 	{
 		public:
-			bool create(Object<ID3D11Device> &device);
-			void set(Object<ID3D11DeviceContext>& deviceContext);
+			bool create(Object<ID3D11Device> *device);
+			void set(Object<ID3D11DeviceContext> *deviceContext);
 	};
 
 	class PixelShader : public Shader<ID3D11PixelShader>
 	{
 		public:
-			bool create(Object<ID3D11Device>& device);
-			void set(Object<ID3D11DeviceContext>& deviceContext);
+			bool create(Object<ID3D11Device> *device);
+			void set(Object<ID3D11DeviceContext> *deviceContext);
 	};
 }

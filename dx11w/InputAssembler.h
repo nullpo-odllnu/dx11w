@@ -6,8 +6,8 @@ namespace dx
 	class IndexBuffer;
 	class VertexShader;
 
-	void setIndexBuffer(Object<ID3D11DeviceContext> &deviceContext,
-		IndexBuffer &indexBuffer,
+	void setIndexBuffer(Object<ID3D11DeviceContext> *deviceContext,
+		IndexBuffer *indexBuffer,
 		DXGI_FORMAT indexFormat = DXGI_FORMAT_R32_UINT);
 
 	#define INPUT_ELEMENT(semanticsName, semanticsIndex, format, inputSlotIndex, dataOffset, dataType, instanceNo) {semanticsName, semanticsIndex, format, inputSlotIndex, dataOffset, dataType, instanceNo}
@@ -19,11 +19,11 @@ namespace dx
 		public:
 			InputLayout();
 
-			bool create(Object<ID3D11Device> &device, std::vector<D3D11_INPUT_ELEMENT_DESC> &inputElementDescriptionList, VertexShader &vertexShader);
+			bool create(Object<ID3D11Device> *device, std::vector<D3D11_INPUT_ELEMENT_DESC> &inputElementDescriptionList, VertexShader &vertexShader);
 
-			void set(Object<ID3D11DeviceContext> &deviceContext);
+			void set(Object<ID3D11DeviceContext> *deviceContext);
 	};
 	
-	void setPrimitiveTopology(Object<ID3D11DeviceContext> &deviceContext,
+	void setPrimitiveTopology(Object<ID3D11DeviceContext> *deviceContext,
 		D3D_PRIMITIVE_TOPOLOGY primitiveTopology = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 }

@@ -56,7 +56,7 @@ namespace dx
 	BlendState::BlendState() : Object<ID3D11BlendState>()
 	{
 	}
-	bool BlendState::create(Object<ID3D11Device> &device, std::vector<BlendParam> &blendParamList, bool alphaToCoverage)
+	bool BlendState::create(Object<ID3D11Device> *device, std::vector<BlendParam> &blendParamList, bool alphaToCoverage)
 	{
 		if (m_object != nullptr)
 		{
@@ -83,7 +83,7 @@ namespace dx
 			blendDescription.RenderTarget[i].BlendOpAlpha = blendParamList[i].blendOpAlpha;
 			blendDescription.RenderTarget[i].RenderTargetWriteMask = blendParamList[i].writeMask;
 		}
-		auto result = device.handle()->CreateBlendState(&blendDescription, pointer());
+		auto result = device->handle()->CreateBlendState(&blendDescription, pointer());
 		if (FAILED(result))
 		{
 			DXTRACE_ERR_MSGBOX(_T("device::createblendstate"), result);
@@ -91,20 +91,20 @@ namespace dx
 		}
 		return true;
 	}
-	void BlendState::set(Object<ID3D11DeviceContext> &deviceContext)
+	void BlendState::set(Object<ID3D11DeviceContext> *deviceContext)
 	{
 		float blendFactor[] =
 		{
 			0.0f, 0.0f, 0.0f, 0.0f,
 		};
-		deviceContext.handle()->OMSetBlendState(handle(), blendFactor, 0xffffffff);
+		deviceContext->handle()->OMSetBlendState(handle(), blendFactor, 0xffffffff);
 	}
 
 	DepthState::DepthState() : 
 	Object<ID3D11DepthStencilState>()
 	{
 	}
-	bool DepthState::create(Object<ID3D11Device> &device, bool enable, D3D11_DEPTH_WRITE_MASK depthWriteMask, D3D11_COMPARISON_FUNC comparisonFunction)
+	bool DepthState::create(Object<ID3D11Device> *device, bool enable, D3D11_DEPTH_WRITE_MASK depthWriteMask, D3D11_COMPARISON_FUNC comparisonFunction)
 	{
 		if (m_object != nullptr)
 		{
@@ -130,7 +130,7 @@ namespace dx
 		depthStencilDescription.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
 		depthStencilDescription.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
 
-		auto result = device.handle()->CreateDepthStencilState(&depthStencilDescription, pointer());
+		auto result = device->handle()->CreateDepthStencilState(&depthStencilDescription, pointer());
 		if (FAILED(result))
 		{
 			DXTRACE_ERR_MSGBOX(_T("device::createdepthstencilstate"), result);
@@ -138,8 +138,8 @@ namespace dx
 		}
 		return true;
 	}
-	void DepthState::set(Object<ID3D11DeviceContext> &deviceContext)
+	void DepthState::set(Object<ID3D11DeviceContext> *deviceContext)
 	{
-		deviceContext.handle()->OMSetDepthStencilState(handle(), 0);
+		deviceContext->handle()->OMSetDepthStencilState(handle(), 0);
 	}
 }

@@ -23,7 +23,7 @@ namespace dx
 			// 　　bindFlags = D3D11_BIND_SHADER_RESOURCE | D3D11_BIND_RENDER_TARGET
 			// 深度バッファとして作るなら
 			// 　　bindFlags = D3D11_BIND_DEPTH_STENCIL
-			bool createTexture2D(Object<ID3D11Device> &device,
+			bool createTexture2D(Object<ID3D11Device> *device,
 				unsigned int width, unsigned int height,
 				DXGI_FORMAT format,
 				unsigned int bindFlags,
@@ -67,7 +67,7 @@ namespace dx
 				return true;
 			}
 			// 画像ファイルからシェーダリソースビュー作成
-			bool createShaderResourceViewFromFile(Object<ID3D11Device> &device, const tstring &filePath)
+			bool createShaderResourceViewFromFile(Object<ID3D11Device> *device, const tstring &filePath)
 			{
 				if (m_shaderResourceView.handle() != nullptr)
 				{
@@ -75,7 +75,7 @@ namespace dx
 					return false;
 				}
 
-				auto result = D3DX11CreateShaderResourceViewFromFile(device.handle(),
+				auto result = D3DX11CreateShaderResourceViewFromFile(device->handle(),
 					filePath.c_str(),
 					nullptr, nullptr, 
 					m_shaderResourceView.pointer(),
@@ -100,13 +100,13 @@ namespace dx
 				return true;
 			}
 			// メモリからシェーダリソースビュー作成
-			bool createShaderResourceViewFromMemory(Object<ID3D11Device> &device, void *data, unsigned int size)
+			bool createShaderResourceViewFromMemory(Object<ID3D11Device> *device, void *data, unsigned int size)
 			{
 				if (m_shaderResourceView.handle() != nullptr)
 				{
 					dx::printd(_T("shader resource view already exist.\n"));
 				}
-				auto result = D3DX11CreateShaderResourceViewFromMemory(device.handle(), data, size, 
+				auto result = D3DX11CreateShaderResourceViewFromMemory(device->handle(), data, size, 
 					nullptr, nullptr, m_shaderResourceView.pointer(), nullptr);
 
 				if (FAILED(result))
@@ -130,7 +130,7 @@ namespace dx
 			}
 
 			// 作成済みテクスチャからシェーダリソースビューを作成
-			bool createShaderResourceViewFromCreatedTexture2D(Object<ID3D11Device> &device)
+			bool createShaderResourceViewFromCreatedTexture2D(Object<ID3D11Device> *device)
 			{
 				if (m_shaderResourceView.handle() != nullptr)
 				{
@@ -149,7 +149,7 @@ namespace dx
 				shaderResourceViewDescription.Texture2D.MostDetailedMip = 0;
 				shaderResourceViewDescription.Texture2D.MipLevels = m_mipmapLevels;
 				
-				auto result = device.handle()->CreateShaderResourceView(m_resource.handle(), &shaderResourceViewDescription, m_shaderResourceView.pointer());
+				auto result = device->handle()->CreateShaderResourceView(m_resource.handle(), &shaderResourceViewDescription, m_shaderResourceView.pointer());
 				if (FAILED(result))
 				{
 					DXTRACE_ERR_MSGBOX(_T("device::createshaderresourceview"), result);
@@ -158,7 +158,7 @@ namespace dx
 				return true;
 			}
 			// 作成済みテクスチャからレンダーターゲットビューを作成
-			bool createRenderTargetViewFromCreatedTexture2D(Object<ID3D11Device> &device)
+			bool createRenderTargetViewFromCreatedTexture2D(Object<ID3D11Device> *device)
 			{
 				if (m_renderTargetView.handle() != nullptr)
 				{
@@ -176,7 +176,7 @@ namespace dx
 				renderTargetViewDescription.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
 				renderTargetViewDescription.Texture2D.MipSlice = 0;
 
-				auto result = device.handle()->CreateRenderTargetView(m_resource.handle(), &renderTargetViewDescription, m_renderTargetView.pointer());
+				auto result = device->handle()->CreateRenderTargetView(m_resource.handle(), &renderTargetViewDescription, m_renderTargetView.pointer());
 				if (FAILED(result))
 				{
 					DXTRACE_ERR_MSGBOX(_T("device::createrendertargetview"), result);
@@ -185,7 +185,7 @@ namespace dx
 				return true;
 			}
 			// 作成済みテクスチャから深度バッファ作成
-			bool createDepthStencilViewFromCreatedTexture2D(Object<ID3D11Device> &device)
+			bool createDepthStencilViewFromCreatedTexture2D(Object<ID3D11Device> *device)
 			{
 				if (m_depthStencilView.handle() != nullptr)
 				{
@@ -204,7 +204,7 @@ namespace dx
 				depthStencilViewDescription.Flags = 0;
 				depthStencilViewDescription.Texture2D.MipSlice = 0;
 
-				auto result = device.handle()->CreateDepthStencilView(m_resource.handle(), &depthStencilViewDescription, m_depthStencilView.pointer());
+				auto result = device->handle()->CreateDepthStencilView(m_resource.handle(), &depthStencilViewDescription, m_depthStencilView.pointer());
 				if (FAILED(result))
 				{
 					DXTRACE_ERR_MSGBOX(_T("device::createdepthstencilview"), result);
@@ -252,28 +252,28 @@ namespace dx
 			}
 
 			// レンダーターゲットビュークリア
-			void clearRenderTargetView(Object<ID3D11DeviceContext> &deviceContext, float4 clearColor = float4(0.0f))
+			void clearRenderTargetView(Object<ID3D11DeviceContext> *deviceContext, float4 clearColor = float4(0.0f))
 			{
 				if (m_renderTargetView.handle() == nullptr)
 				{
 					return;
 				}
-				deviceContext.handle()->ClearRenderTargetView(m_renderTargetView.handle(), clearColor);
+				deviceContext->handle()->ClearRenderTargetView(m_renderTargetView.handle(), clearColor);
 			}
 			// 深度バッファビューのクリア
-			void clearDepthStencilView(Object<ID3D11DeviceContext> &deviceContext, float clearDepthValue = 1.0f, unsigned int clearFlag = D3D11_CLEAR_DEPTH)
+			void clearDepthStencilView(Object<ID3D11DeviceContext> *deviceContext, float clearDepthValue = 1.0f, unsigned int clearFlag = D3D11_CLEAR_DEPTH)
 			{
 				if (m_depthStencilView.handle() == nullptr)
 				{
 					return;
 				}
-				deviceContext.handle()->ClearDepthStencilView(m_depthStencilView.handle(), clearFlag, clearDepthValue, 0);
+				deviceContext->handle()->ClearDepthStencilView(m_depthStencilView.handle(), clearFlag, clearDepthValue, 0);
 			}
 
 			// ファイル出力
-			bool writeTextureToFile(Object<ID3D11DeviceContext> &deviceContext, const tstring &filePath, D3DX11_IMAGE_FILE_FORMAT fileFormat = D3DX11_IFF_JPG)
+			bool writeTextureToFile(Object<ID3D11DeviceContext> *deviceContext, const tstring &filePath, D3DX11_IMAGE_FILE_FORMAT fileFormat = D3DX11_IFF_JPG)
 			{
-				auto result = D3DX11SaveTextureToFile(deviceContext.handle(), m_resource.handle(), fileFormat, filePath.c_str());
+				auto result = D3DX11SaveTextureToFile(deviceContext->handle(), m_resource.handle(), fileFormat, filePath.c_str());
 				if (FAILED(result))
 				{
 					DXTRACE_ERR_MSGBOX(_T("D3DX11SaveTextureToFile"), result);

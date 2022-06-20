@@ -13,7 +13,7 @@ namespace dx
 	{
 	}
 
-	bool Buffer::create(Object<ID3D11Device> &device, unsigned int structSize, unsigned int structNum, void *bufferData, D3D11_USAGE usage, unsigned int cpuAccessFlags)
+	bool Buffer::create(Object<ID3D11Device> *device, unsigned int structSize, unsigned int structNum, void *bufferData, D3D11_USAGE usage, unsigned int cpuAccessFlags)
 	{
 		// Šù‚Éì¬Ï‚Ý‚Ìê‡Aì¬Ž¸”s‚Æ‚·‚é
 		if (m_object != nullptr)
@@ -41,7 +41,7 @@ namespace dx
 			subResourceData.SysMemSlicePitch = 0;
 		}
 
-		HRESULT result = device.handle()->CreateBuffer(&bufferDescription, 
+		HRESULT result = device->handle()->CreateBuffer(&bufferDescription, 
 			bufferData != nullptr ? &subResourceData : nullptr, pointer());
 		if (FAILED(result))
 		{
@@ -51,10 +51,10 @@ namespace dx
 		return true;
 	}
 
-	bool ConstantBuffer::set(Object<ID3D11DeviceContext> &deviceContext, void* bufferData, unsigned int bufferSize)
+	bool ConstantBuffer::set(Object<ID3D11DeviceContext> *deviceContext, void* bufferData, unsigned int bufferSize)
 	{
 		D3D11_MAPPED_SUBRESOURCE mappedSubresource;
-		auto result = deviceContext.handle()->Map(handle(), 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedSubresource);
+		auto result = deviceContext->handle()->Map(handle(), 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedSubresource);
 		if (FAILED(result))
 		{
 			printd(_T("devicecontext::map"));
@@ -63,7 +63,7 @@ namespace dx
 
 		memcpy_s(mappedSubresource.pData, bufferSize, bufferData, bufferSize);
 
-		deviceContext.handle()->Unmap(handle(), 0);
+		deviceContext->handle()->Unmap(handle(), 0);
 
 		return true;
 	}
