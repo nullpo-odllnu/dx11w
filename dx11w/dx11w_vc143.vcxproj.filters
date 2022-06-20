@@ -55,6 +55,9 @@
     <ClInclude Include="extension\Mesh.h">
       <Filter>extension\primitive</Filter>
     </ClInclude>
+    <ClInclude Include="extension\Teapot.h">
+      <Filter>extension\primitive</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="float2.cpp">
@@ -103,6 +106,9 @@
       <Filter>core\math</Filter>
     </ClCompile>
     <ClCompile Include="extension\Mesh.cpp">
+      <Filter>extension\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="extension\Teapot.cpp">
       <Filter>extension\primitive</Filter>
     </ClCompile>
   </ItemGroup>

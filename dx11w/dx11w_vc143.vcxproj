@@ -164,6 +164,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="extension\Mesh.h" />
+    <ClInclude Include="extension\Teapot.h" />
     <ClInclude Include="float2.h" />
     <ClInclude Include="float3.h" />
     <ClInclude Include="float4.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="extension\Mesh.cpp" />
+    <ClCompile Include="extension\Teapot.cpp" />
     <ClCompile Include="float2.cpp" />
     <ClCompile Include="float3.cpp" />
     <ClCompile Include="float4.cpp" />
