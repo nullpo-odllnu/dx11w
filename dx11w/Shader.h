@@ -70,9 +70,9 @@ namespace dx
 				return true;
 			}
 
-			Object<ID3DBlob>& getShaderBlob()
+			Object<ID3DBlob>* getShaderBlob()
 			{
-				return m_shaderBlob;
+				return &m_shaderBlob;
 			}
 
 			virtual bool create(Object<ID3D11Device>& device)

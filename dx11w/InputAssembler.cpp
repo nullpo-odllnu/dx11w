@@ -24,8 +24,8 @@ namespace dx
 		auto shaderBlob = vertexShader.getShaderBlob();
 		auto result = device.handle()->CreateInputLayout(inputElementDescriptionList.data(),
 			static_cast<unsigned int>(inputElementDescriptionList.size()),
-			shaderBlob.handle()->GetBufferPointer(),
-			shaderBlob.handle()->GetBufferSize(),
+			shaderBlob->handle()->GetBufferPointer(),
+			shaderBlob->handle()->GetBufferSize(),
 			pointer());
 		if (FAILED(result))
 		{
