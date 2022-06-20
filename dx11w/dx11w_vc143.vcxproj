@@ -163,6 +163,7 @@
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="extension\Mesh.h" />
     <ClInclude Include="float2.h" />
     <ClInclude Include="float3.h" />
     <ClInclude Include="float4.h" />
@@ -174,7 +175,6 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="OutputManager.h" />
     <ClInclude Include="precompile.h" />
-    <ClInclude Include="extension\precompile_ext.h" />
     <ClInclude Include="RasterizerState.h" />
     <ClInclude Include="Shader.h" />
   </ItemGroup>
@@ -183,6 +183,7 @@
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="extension\Mesh.cpp" />
     <ClCompile Include="float2.cpp" />
     <ClCompile Include="float3.cpp" />
     <ClCompile Include="float4.cpp" />
@@ -197,7 +198,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="extension\precompile_ext.cpp" />
     <ClCompile Include="RasterizerState.cpp" />
     <ClCompile Include="Shader.cpp" />
   </ItemGroup>

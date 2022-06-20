@@ -49,11 +49,11 @@
     <ClInclude Include="precompile.h">
       <Filter>core\misc</Filter>
     </ClInclude>
-    <ClInclude Include="extension\precompile_ext.h">
-      <Filter>extension\misc</Filter>
-    </ClInclude>
     <ClInclude Include="BoundingBox.h">
       <Filter>core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="extension\Mesh.h">
+      <Filter>extension\primitive</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -99,11 +99,11 @@
     <ClCompile Include="precompile.cpp">
       <Filter>core\misc</Filter>
     </ClCompile>
-    <ClCompile Include="extension\precompile_ext.cpp">
-      <Filter>extension\misc</Filter>
-    </ClCompile>
     <ClCompile Include="BoundingBox.cpp">
       <Filter>core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="extension\Mesh.cpp">
+      <Filter>extension\primitive</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +124,9 @@
     </Filter>
     <Filter Include="extension\misc">
       <UniqueIdentifier>{7537f65d-2076-4428-8b35-a6b3f956ed6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extension\primitive">
+      <UniqueIdentifier>{47bf8190-b665-4b2b-99b7-2b4726572dd1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

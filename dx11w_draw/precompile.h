@@ -11,4 +11,3 @@
 
 // 必要ヘッダのインクルード
 #include <precompile.h>
-#include <extension/precompile_ext.h>

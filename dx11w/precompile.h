@@ -1,5 +1,8 @@
 #pragma once
 
+// 拡張機能スイッチ
+#define DX11W_EXT_DIRECTXTK
+
 // ライブラリリンク
 #ifdef _DEBUG
 	#define DX11W_LIB_SUFFIX "d"
@@ -15,8 +18,19 @@
 #pragma comment(lib, "legacy_stdio_definitions")
 #pragma comment(lib, "winmm")
 
+#ifdef DX11W_EXT_DIRECTXTK
+	// debug / releaseを分けるために
+	// debug版ではファイル名末尾にdを付与していることを想定
+	#pragma comment(lib, "DirectXTK" DX11W_LIB_SUFFIX)
+#endif
+
 // マクロ再定義の警告を無視
 #pragma warning(disable : 4005)
+
+#ifdef DX11W_EXT_DIRECTXTK
+	// エラーの都合でインクルード順序変更
+	#include <GeometricPrimitive.h>
+#endif
 
 #include <sdkddkver.h>
 #define WIN32_LEAN_AND_MEAN
