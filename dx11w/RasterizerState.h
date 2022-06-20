@@ -17,4 +17,14 @@ namespace dx
 
 			void set(Object<ID3D11DeviceContext> &deviceContext);
 	};
+
+	class float2;
+
+	class Viewport : public D3D11_VIEWPORT
+	{
+		public:
+			Viewport();
+			Viewport(unsigned int width, unsigned int height);
+			Viewport(const float2 &size);
+	};
 }
