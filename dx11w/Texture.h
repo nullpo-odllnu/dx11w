@@ -213,21 +213,21 @@ namespace dx
 				return true;
 			}
 
-			Object<Type>& getTextureResource() const
+			Object<Type>* getTextureResource() const
 			{
-				return m_resource;
+				return &m_resource;
 			}
-			Object<ID3D11ShaderResourceView>& getShaderResourceView() const
+			Object<ID3D11ShaderResourceView>* getShaderResourceView() const
 			{
-				return m_shaderResourceView;
+				return &m_shaderResourceView;
 			}
-			Object<ID3D11RenderTargetView>& getRenderTargetView() const
+			Object<ID3D11RenderTargetView>* getRenderTargetView() const
 			{
-				return m_renderTargetView;
+				return &m_renderTargetView;
 			}
-			Object<ID3D11DepthStencilView>& getDepthStencilView() const
+			Object<ID3D11DepthStencilView>* getDepthStencilView() const
 			{
-				return m_depthStencilView;
+				return &m_depthStencilView;
 			}
 			unsigned int getWidth() const
 			{
