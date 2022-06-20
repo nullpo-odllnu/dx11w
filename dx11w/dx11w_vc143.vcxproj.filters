@@ -1,37 +1,123 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="precompile.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Core.h" />
-    <ClInclude Include="Common.h" />
-    <ClInclude Include="float4.h" />
-    <ClInclude Include="float2.h" />
-    <ClInclude Include="float3.h" />
-    <ClInclude Include="float4x4.h" />
-    <ClInclude Include="DXMath.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="Framerate.h" />
-    <ClInclude Include="Buffer.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="InputAssembler.h" />
-    <ClInclude Include="OutputManager.h" />
-    <ClInclude Include="RasterizerState.h" />
+    <ClInclude Include="DXMath.h">
+      <Filter>core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="float2.h">
+      <Filter>core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="float3.h">
+      <Filter>core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="float4.h">
+      <Filter>core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="float4x4.h">
+      <Filter>core\math</Filter>
+    </ClInclude>
+    <ClInclude Include="Buffer.h">
+      <Filter>core\dxcomponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>core\dxcomponent</Filter>
+    </ClInclude>
+    <ClInclude Include="InputAssembler.h">
+      <Filter>core\dxcomponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>core\dxcomponent</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputManager.h">
+      <Filter>core\dxcomponent</Filter>
+    </ClInclude>
+    <ClInclude Include="RasterizerState.h">
+      <Filter>core\dxcomponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>core\dxcomponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>core\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Framerate.h">
+      <Filter>core\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>core\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="precompile.h">
+      <Filter>core\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="extension\precompile_ext.h">
+      <Filter>extension\misc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="precompile.cpp" />
-    <ClCompile Include="Core.cpp" />
-    <ClCompile Include="Common.cpp" />
-    <ClCompile Include="float4.cpp" />
-    <ClCompile Include="float2.cpp" />
-    <ClCompile Include="float3.cpp" />
-    <ClCompile Include="float4x4.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Framerate.cpp" />
-    <ClCompile Include="Buffer.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="InputAssembler.cpp" />
-    <ClCompile Include="OutputManager.cpp" />
-    <ClCompile Include="RasterizerState.cpp" />
+    <ClCompile Include="float2.cpp">
+      <Filter>core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="float3.cpp">
+      <Filter>core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="float4.cpp">
+      <Filter>core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="float4x4.cpp">
+      <Filter>core\math</Filter>
+    </ClCompile>
+    <ClCompile Include="Buffer.cpp">
+      <Filter>core\dxcomponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>core\dxcomponent</Filter>
+    </ClCompile>
+    <ClCompile Include="InputAssembler.cpp">
+      <Filter>core\dxcomponent</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputManager.cpp">
+      <Filter>core\dxcomponent</Filter>
+    </ClCompile>
+    <ClCompile Include="RasterizerState.cpp">
+      <Filter>core\dxcomponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>core\dxcomponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Common.cpp">
+      <Filter>core\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Framerate.cpp">
+      <Filter>core\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>core\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="precompile.cpp">
+      <Filter>core\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="extension\precompile_ext.cpp">
+      <Filter>extension\misc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="extension">
+      <UniqueIdentifier>{9722d2ff-647f-45d4-bece-dfe1c5f1960d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{8ca6b66d-22f4-41d6-9cdc-d52f1c3c2d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\math">
+      <UniqueIdentifier>{e23b6f8e-a753-4814-83ea-2171aa3238ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\dxcomponent">
+      <UniqueIdentifier>{7b6af3da-6289-4c92-b9c1-43a5e3c49c77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\misc">
+      <UniqueIdentifier>{c36d5b62-0ac3-481c-9cdd-0b39df8197e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extension\misc">
+      <UniqueIdentifier>{7537f65d-2076-4428-8b35-a6b3f956ed6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
