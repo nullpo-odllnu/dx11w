@@ -2,13 +2,13 @@
 
 // ライブラリリンク
 #ifdef _DEBUG
-	#define DX11W_LIB_PREFIX "d"
+	#define DX11W_LIB_SUFFIX "d"
 #else
-	#define DX11W_LIB_PREFIX ""
+	#define DX11W_LIB_SUFFIX ""
 #endif
 
 #pragma comment(lib, "d3d11")
-#pragma comment(lib, "d3dx11" DX11W_LIB_PREFIX)
+#pragma comment(lib, "d3dx11" DX11W_LIB_SUFFIX)
 #pragma comment(lib, "dxerr")
 #pragma comment(lib, "dxgi")
 // DXTRACE_ERR_MSGBOXを使うために追加
