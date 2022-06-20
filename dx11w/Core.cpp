@@ -1,4 +1,6 @@
 #include "Core.h"
+
+#include "float2.h"
 #include "float4.h"
 
 namespace dx
@@ -252,6 +254,26 @@ namespace dx
 		}
 	}
 
+	Object<ID3D11Device>* Core::getDevice() const
+	{
+		return &m_impl->m_device;
+	}
+	Object<ID3D11DeviceContext>* Core::getImmediateContext() const
+	{
+		return &m_impl->m_immediateContext;
+	}
+	Object<ID3D11RenderTargetView>* Core::getBackbufferRenderTargetView() const
+	{
+		return &m_impl->m_backbufferRenderTargetView;
+	}
+	Object<ID3D11DepthStencilView>* Core::getBackbufferDepthStencilView() const
+	{
+		return &m_impl->m_backbufferDepthStencilView;
+	}
+	float2 Core::getWindowSize() const
+	{
+		return float2(static_cast<float>(m_impl->m_param.width), static_cast<float>(m_impl->m_param.height));
+	}
 	HWND Core::getWindowHandle() const
 	{
 		return m_impl->m_param.windowHandle;

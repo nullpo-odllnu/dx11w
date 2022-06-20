@@ -55,11 +55,11 @@ namespace dx
 			RENDERER_STATE checkRendererState() const;
 			
 			// ------ メンバ変数取得
-			Object<ID3D11Device> getDevice() const;
-			Object<ID3D11DeviceContext> getImmediateContext() const;
-			Object<ID3D11RenderTargetView> getBackbufferRenderTargetView() const;
-			Object<ID3D11DepthStencilView> getBackbufferDepthStencilView() const;
-			float2 getWindosSize() const;
+			Object<ID3D11Device>* getDevice() const;
+			Object<ID3D11DeviceContext>* getImmediateContext() const;
+			Object<ID3D11RenderTargetView>* getBackbufferRenderTargetView() const;
+			Object<ID3D11DepthStencilView>* getBackbufferDepthStencilView() const;
+			float2 getWindowSize() const;
 			HWND getWindowHandle() const;
 
 			// ------ 描画コマンド
