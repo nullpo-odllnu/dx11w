@@ -282,10 +282,7 @@ namespace dx
 				return true;
 			}
 
-		private:
-			Texture(const Texture& texture);
-			Texture& operator = (const Texture& texture);
-			
+		private:			
 			Object<Type> m_resource;
 			Object<ID3D11ShaderResourceView> m_shaderResourceView;
 			Object<ID3D11RenderTargetView> m_renderTargetView;
