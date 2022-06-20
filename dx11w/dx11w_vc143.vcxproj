@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BoundingBox.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="Core.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoundingBox.cpp" />
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Core.cpp" />

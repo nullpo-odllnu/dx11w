@@ -52,6 +52,9 @@
     <ClInclude Include="extension\precompile_ext.h">
       <Filter>extension\misc</Filter>
     </ClInclude>
+    <ClInclude Include="BoundingBox.h">
+      <Filter>core\math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="float2.cpp">
@@ -98,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="extension\precompile_ext.cpp">
       <Filter>extension\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="BoundingBox.cpp">
+      <Filter>core\math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
