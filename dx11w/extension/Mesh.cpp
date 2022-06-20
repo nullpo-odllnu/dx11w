@@ -1,6 +1,3 @@
-// インクルード順序によってはエラーが発生する
-//#include <GeometricPrimitive.h>
-
 #include "Mesh.h"
 
 namespace dx
