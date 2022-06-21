@@ -45,6 +45,7 @@
 #include <mmsystem.h>
 #include <vector>
 #include <DirectXCollision.h>
+#include <map>
 
 #include "Object.h"
 #include "Common.h"
