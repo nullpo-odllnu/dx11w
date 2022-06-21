@@ -29,7 +29,7 @@ namespace dx
 		public:
 			BlendState();
 
-			bool create(Object<ID3D11Device> *device, std::vector<BlendParam> &blendParamList, bool alphaToCoverage = false);
+			bool create(Object<ID3D11Device> *device, const std::vector<BlendParam> &blendParamList, bool alphaToCoverage = false);
 			void set(Object<ID3D11DeviceContext> *deviceContext);
 	};
 

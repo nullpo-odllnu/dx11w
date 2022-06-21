@@ -56,7 +56,7 @@ namespace dx
 	BlendState::BlendState() : Object<ID3D11BlendState>()
 	{
 	}
-	bool BlendState::create(Object<ID3D11Device> *device, std::vector<BlendParam> &blendParamList, bool alphaToCoverage)
+	bool BlendState::create(Object<ID3D11Device> *device, const std::vector<BlendParam> &blendParamList, bool alphaToCoverage)
 	{
 		if (m_object != nullptr)
 		{
