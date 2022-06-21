@@ -127,10 +127,10 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>precompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>$(ProjectDir)precompile.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>precompile.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(ProjectDir)precompile.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,10 +146,10 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>precompile.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>$(ProjectDir)precompile.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>precompile.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles>$(ProjectDir)precompile.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="extension\Asset.h" />
     <ClInclude Include="BoundingBox.h" />
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Common.h" />
@@ -178,8 +179,10 @@
     <ClInclude Include="precompile.h" />
     <ClInclude Include="RasterizerState.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="extension\Asset.cpp" />
     <ClCompile Include="BoundingBox.cpp" />
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Common.cpp" />
@@ -202,6 +205,7 @@
     </ClCompile>
     <ClCompile Include="RasterizerState.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -58,6 +58,12 @@
     <ClInclude Include="extension\Teapot.h">
       <Filter>extension\primitive</Filter>
     </ClInclude>
+    <ClInclude Include="extension\Asset.h">
+      <Filter>extension\asset</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>core\dxcomponent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="float2.cpp">
@@ -111,6 +117,12 @@
     <ClCompile Include="extension\Teapot.cpp">
       <Filter>extension\primitive</Filter>
     </ClCompile>
+    <ClCompile Include="extension\Asset.cpp">
+      <Filter>extension\asset</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>core\dxcomponent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="extension">
@@ -133,6 +145,9 @@
     </Filter>
     <Filter Include="extension\primitive">
       <UniqueIdentifier>{47bf8190-b665-4b2b-99b7-2b4726572dd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extension\asset">
+      <UniqueIdentifier>{1c119338-a703-4ede-99e7-db37045dd105}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
