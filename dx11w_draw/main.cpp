@@ -2,6 +2,8 @@
 #include <Input.h>
 #include <Framerate.h>
 
+#include <extension/Asset.h>
+
 #include <float4.h>
 
 // コールバック関数
@@ -101,6 +103,12 @@ void begin()
 
 	auto framerate = dx::Framerate::getInstance();
 	framerate->set(fps);
+
+	auto globalAssset = dx::GlobalAsset::getInstance();
+	if (globalAssset->init() == false)
+	{
+		core->quit();
+	}
 }
 
 void update()
@@ -131,6 +139,7 @@ void end()
 	dx::Core::deleteInstance();
 	dx::Input::deleteInstance();
 	dx::Framerate::deleteInstance();
+	dx::GlobalAsset::deleteInstance();
 }
 
 int WINAPI _tWinMain(HINSTANCE instance, HINSTANCE prevInstance, LPTSTR commandline, int commandShow)
